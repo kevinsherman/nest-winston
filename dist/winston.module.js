@@ -10,9 +10,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.WinstonModule = void 0;
 const common_1 = require("@nestjs/common");
 const winston_providers_1 = require("./winston.providers");
-let WinstonModule = WinstonModule_1 = class WinstonModule {
+let WinstonModule = exports.WinstonModule = WinstonModule_1 = class WinstonModule {
     static forRoot(options) {
-        const providers = winston_providers_1.createWinstonProviders(options);
+        const providers = (0, winston_providers_1.createWinstonProviders)(options);
         return {
             module: WinstonModule_1,
             providers: providers,
@@ -20,7 +20,7 @@ let WinstonModule = WinstonModule_1 = class WinstonModule {
         };
     }
     static forRootAsync(options) {
-        const providers = winston_providers_1.createWinstonAsyncProviders(options);
+        const providers = (0, winston_providers_1.createWinstonAsyncProviders)(options);
         return {
             module: WinstonModule_1,
             imports: options.imports,
@@ -29,11 +29,10 @@ let WinstonModule = WinstonModule_1 = class WinstonModule {
         };
     }
     static createLogger(options) {
-        return winston_providers_1.createNestWinstonLogger(options);
+        return (0, winston_providers_1.createNestWinstonLogger)(options);
     }
 };
-WinstonModule = WinstonModule_1 = __decorate([
-    common_1.Global(),
-    common_1.Module({})
+exports.WinstonModule = WinstonModule = WinstonModule_1 = __decorate([
+    (0, common_1.Global)(),
+    (0, common_1.Module)({})
 ], WinstonModule);
-exports.WinstonModule = WinstonModule;

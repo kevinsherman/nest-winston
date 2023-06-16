@@ -14,14 +14,14 @@ const winston_1 = require("winston");
 const winston_constants_1 = require("./winston.constants");
 const winston_classes_1 = require("./winston.classes");
 function createNestWinstonLogger(loggerOpts) {
-    return new winston_classes_1.WinstonLogger(winston_1.createLogger(loggerOpts));
+    return new winston_classes_1.WinstonLogger((0, winston_1.createLogger)(loggerOpts));
 }
 exports.createNestWinstonLogger = createNestWinstonLogger;
 function createWinstonProviders(loggerOpts) {
     return [
         {
             provide: winston_constants_1.WINSTON_MODULE_PROVIDER,
-            useFactory: () => winston_1.createLogger(loggerOpts),
+            useFactory: () => (0, winston_1.createLogger)(loggerOpts),
         },
         {
             provide: winston_constants_1.WINSTON_MODULE_NEST_PROVIDER,
@@ -37,7 +37,7 @@ function createWinstonAsyncProviders(options) {
     const providers = [
         {
             provide: winston_constants_1.WINSTON_MODULE_PROVIDER,
-            useFactory: (loggerOpts) => winston_1.createLogger(loggerOpts),
+            useFactory: (loggerOpts) => (0, winston_1.createLogger)(loggerOpts),
             inject: [winston_constants_1.WINSTON_MODULE_OPTIONS],
         },
         {

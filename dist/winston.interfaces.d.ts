@@ -1,7 +1,7 @@
 import { LoggerOptions } from 'winston';
 import { ModuleMetadata } from '@nestjs/common/interfaces';
 import { Type } from '@nestjs/common';
-export declare type WinstonModuleOptions = LoggerOptions;
+export type WinstonModuleOptions = LoggerOptions;
 export interface WinstonModuleOptionsFactory {
     createWinstonModuleOptions(): Promise<WinstonModuleOptions> | WinstonModuleOptions;
 }

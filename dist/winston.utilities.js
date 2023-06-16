@@ -42,7 +42,7 @@ const nestLikeConsoleFormat = (appName = 'NestWinston') => winston_1.format.prin
         ('undefined' !== typeof timestamp ? `${timestamp} ` : '') +
         ('undefined' !== typeof context ? `${cli_color_1.default.yellow('[' + context + ']')} ` : '') +
         `${color(message)} - ` +
-        `${fast_safe_stringify_1.default(meta)}` +
+        `${(0, fast_safe_stringify_1.default)(meta)}` +
         ('undefined' !== typeof ms ? ` ${cli_color_1.default.yellow(ms)}` : '');
 });
 exports.utilities = {
